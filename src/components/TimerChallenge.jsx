@@ -9,7 +9,7 @@ export default function TimerChallenge({ title, targetTime }) {
 
   if (timeRemaining <= 0) {
     clearInterval(timer.current)
-
+    setTimeRemaining(targetTime * 1000)
     dialogRef.current.open()
   }
   function handleStart() {
@@ -18,8 +18,8 @@ export default function TimerChallenge({ title, targetTime }) {
     }, 10)
   }
   function handleReset() {
-    dialogRef.current.close()
     setTimeRemaining(targetTime * 1000)
+    dialogRef.current.close()
   }
   function handleStop() {
     clearInterval(timer.current)
